@@ -42,10 +42,10 @@ void Window_manager::init_help() {
 }
 
 int Window_manager::init_difficulty() {
-	Simple_window difficulty{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Difficulty" };
-	difficulty.wait_for_button();
-	//difficulty.quit();
-	return 0;
+	Difficulty_menu difficulty{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Difficulty" };
+        difficulty.wait_for_button();
+        difficulty.quit();
+        return difficulty.get_choice();
 }
 
 void Window_manager::init_initials() {
