@@ -2,6 +2,7 @@
 #define WINDOW_MANAGER
 
 #include "Main_menu.h"
+#include "Difficulty_menu.h"
 
 class Window_manager {
 	int init_main_menu();
