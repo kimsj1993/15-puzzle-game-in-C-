@@ -6,7 +6,7 @@ Main_menu::Main_menu(Point xy, int w, int h, const string& title)
 	:Window{ xy,w,h,title },
 	background{ Point{0, 0}, Point{x_max(), y_max()} },
 	splash_text1{ Point{ 25, 40 }, "PLEASE COMPILE - THE 16 GAME" },
-	splash_text2{ Point{ 25, 65 }, "By Team 4 - Luke Grammer, Daniel Trevino, and Seungjin Kim" },
+	splash_text2{ Point{ 25, 65 }, "By Team 4 - Luke Grammer, Daniel Hain-Trevino, and Seungjin Kim" },
 	start_button{ Point{ x_max() / 2 - 70, y_max() / 2 }, 140, 40, "Play", [](Address, Address pw) {reference_to<Main_menu>(pw).change_state(1); } },
 	help_button{ Point{ x_max() / 2 - 35, y_max() / 2 + 80 }, 70, 20, "Help", [](Address, Address pw) {reference_to<Main_menu>(pw).change_state(2); } },
 	quit_button{ Point{ x_max() / 2 - 35, y_max() / 2 + 140 }, 70, 20, "Quit", [](Address, Address pw) {reference_to<Main_menu>(pw).change_state(0); } },
