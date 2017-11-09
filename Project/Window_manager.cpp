@@ -55,9 +55,11 @@ void Window_manager::init_initials() {
 }
 
 void Window_manager::init_game(int difficulty) {
-	Simple_window game{ Point{ 120, 58 }, 1280, 720, "Game" };
-	game.wait_for_button();
 	int temp = difficulty;
+        if(temp == 1) { Simple_window game{ Point{ 120, 58 }, 1280, 720, "Game (Easy)" }; game.wait_for_button(); }
+        if(temp == 2) { Simple_window game{ Point{ 120, 58 }, 1280, 720, "Game (Normal)" }; game.wait_for_button(); }
+        if(temp == 3) { Simple_window game{ Point{ 120, 58 }, 1280, 720, "Game (Hard)" }; game.wait_for_button(); }
+        if(temp == 4) { Simple_window game{ Point{ 120, 58 }, 1280, 720, "Game (Expert)" }; game.wait_for_button(); }
 
 	//game.quit();
 }
