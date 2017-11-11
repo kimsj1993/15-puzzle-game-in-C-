@@ -4,6 +4,7 @@
 #include "Main_window.h"
 #include "Difficulty_window.h"
 #include "Help_window.h"
+#include "Initials_window.h"
 
 class Window_manager {
 	int init_main_window();
