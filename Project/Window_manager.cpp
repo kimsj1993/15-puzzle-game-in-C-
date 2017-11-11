@@ -49,9 +49,9 @@ int Window_manager::init_difficulty() {
 }
 
 void Window_manager::init_initials() {
-	Simple_window initials{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Initials" };
-	initials.wait_for_button();
-	//initials.quit();
+        Initials_window initials{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Initials" };
+        initials.wait_for_button();
+        initials.quit();
 }
 
 void Window_manager::init_game(int difficulty) {
