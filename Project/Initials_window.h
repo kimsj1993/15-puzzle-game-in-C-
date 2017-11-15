@@ -23,6 +23,7 @@ class Initials_window : Graph_lib::Window {
 public:
         Initials_window(Point xy, int w, int h, const string& title);
         void wait_for_button();
+		string get_initials() { return initials_string; }
         void quit();
 };
 
