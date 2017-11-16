@@ -1,5 +1,5 @@
-#ifndef HINT_WINDOW
-#define HINT_WINDOW
+#ifndef HINT
+#define HINT
 
 #include "Simple_window.h"
 
@@ -9,11 +9,14 @@ class Hint : Graph_lib::Window {
 
 	void stylize_objects();
 	void attach_objects();
-	string create_hint(int const board[][4]);
-	int find_distance(int const board[][4]);
+	string create_hint(vector<vector<int>> board);
+	int simulate_valid_moves(vector<vector<int>> board);
+	void find_16(int& x_loc, int& y_loc, vector<vector<int>> board);
+	vector<vector<int>> swap(int num1, int num2, vector<vector<int>> board);
+	int find_distance(const vector<vector<int>>& board);
 
 public:
-	Hint(Point xy, int w, int h, const string& title, int board[][4]);
+	Hint(Point xy, int w, int h, const string& title, vector<vector<int>> board);
 	void wait();
 };
 
