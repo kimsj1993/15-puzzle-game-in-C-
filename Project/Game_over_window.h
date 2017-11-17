@@ -24,5 +24,5 @@ public:
         bool get_choice() { return selection; }
         void quit();
 };
-//If user chooses play again just start the game again
+
 #endif
