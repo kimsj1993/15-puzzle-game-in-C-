@@ -1,29 +1,8 @@
 
 #include "Hint.h"
 
-Hint::Hint(Point xy, int w, int h, const string& title, vector<vector<int>> board)
-	: Window{ xy,w,h,title },
-	background{ Point{ 0, 0 }, Point{ x_max(), y_max() } },
-	hint_text{ Point{ 25, 40 }, create_hint(board) }
+Hint::Hint()
 {
-	stylize_objects();
-	attach_objects();
-}
-
-void Hint::stylize_objects() {
-	background.set_fill_color(Color::white);
-	hint_text.set_font_size(15);
-}
-
-void Hint::attach_objects() {
-	attach(background);
-	attach(hint_text);
-}
-
-void Hint::wait() { // Waits until window is terminated (red x is clicked)
-	show();
-	Fl::run();
-	hide();
 }
 
 string Hint::create_hint(vector<vector<int>> board) { 
@@ -46,16 +25,13 @@ int Hint::simulate_valid_moves(vector<vector<int>> board) {
 	if (y_loc - 1 > 0) // If swapping with tile right is valid
 		d4 = find_distance(swap(board[x_loc][y_loc - 1], board[x_loc][y_loc], board));
 
-	for (int i = 0; i < 4; ++i)
-		for (int j = 0; j < 4; ++j) { // Find min distance & return board value
-			if (min(d1, min(d2, min(d3, d4))) == d1) return board[x_loc + 1][y_loc];
-			else if (min(d1, min(d2, min(d3, d4))) == d2) return board[x_loc - 1][y_loc];
-			else if (min(d1, min(d2, min(d3, d4))) == d3) return board[x_loc][y_loc + 1];
-			else return board[x_loc][y_loc - 1];
-		}
+	if (min(d1, min(d2, min(d3, d4))) == d1) return board[x_loc + 1][y_loc];
+	else if (min(d1, min(d2, min(d3, d4))) == d2) return board[x_loc - 1][y_loc];
+	else if (min(d1, min(d2, min(d3, d4))) == d3) return board[x_loc][y_loc + 1];
+	else return board[x_loc][y_loc - 1];
 }
 
-void Hint::find_16(int& x_loc, int& y_loc, vector<vector<int>> board) {
+void Hint::find_16(int& x_loc, int& y_loc, const vector<vector<int>>& board) {
 	// Finds tile on board with value 16 and gives coords to argument
 	for (int i = 0; i < 4; ++i)
 		for (int j = 0; j < 4; ++j)
