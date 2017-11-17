@@ -12,15 +12,15 @@ void Window_manager::start_game_sequence() {
 	int choice;
 	bool game = true;
 	bool replay = true;
-	while(game) {
+	while (game) {
 		choice = init_main_window();
 		if (choice == 1) {
-			init_initials();
-			choice = init_difficulty();
-			while(replay) {
-                                init_game(choice);
-                                replay = init_game_over();
-                        }
+			init_initials();		
+			while (replay) {
+				choice = init_difficulty();
+				init_game(choice);
+				replay = init_game_over();
+			}
 			game = false;
 		}
 		else if (choice == 2) {
@@ -47,19 +47,19 @@ void Window_manager::init_help() {
 
 int Window_manager::init_difficulty() {
 	Difficulty_window difficulty{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Difficulty" };
-    difficulty.wait_for_button();
-    difficulty.quit();
-    return difficulty.get_choice();
+	difficulty.wait_for_button();
+	difficulty.quit();
+	return difficulty.get_choice();
 }
 
 void Window_manager::init_initials() {
 	Initials_window initials{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Initials" };
-    initials.wait_for_button();
+	initials.wait_for_button();
 	user_initial = initials.get_initials();
-    initials.quit();
+	initials.quit();
 }
 
-void Window_manager::init_game(int difficulty) { 
+void Window_manager::init_game(int difficulty) {
 	Game game{ difficulty, user_initial };
 	Game_window game_window(Point{ 320, 180 }, 1280, 720, "Game", game);
 	game_window.wait_for_button();
@@ -67,8 +67,8 @@ void Window_manager::init_game(int difficulty) {
 }
 
 bool Window_manager::init_game_over() {
-        Game_over_window game_over{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Game_Over" };
-        game_over.wait_for_button();
-        game_over.quit();
-        return game_over.get_choice();
+	Game_over_window game_over{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Game_Over" };
+	game_over.wait_for_button();
+	game_over.quit();
+	return game_over.get_choice();
 }
