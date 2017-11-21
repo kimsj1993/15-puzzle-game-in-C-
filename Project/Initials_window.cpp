@@ -1,3 +1,7 @@
+//Daniel Hain Trevino
+//CSCE 121-513
+//Initials_window.cpp
+
 #include "Initials_window.h"
 #include "Graph.h"
 
