@@ -1,3 +1,7 @@
+//Daniel Hain Trevino
+//CSCE 121-513
+//Difficulty_window.h
+
 #ifndef DIFFICULTY_WINDOW
 #define DIFFICULTY_WINDOW
 
