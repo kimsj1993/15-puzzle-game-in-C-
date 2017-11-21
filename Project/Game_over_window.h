@@ -1,3 +1,7 @@
+//Daniel Hain Trevino
+//CSCE 121-513
+//Game_over_window.h
+
 #ifndef GAME_OVER_WINDOW
 #define GAME_OVER_WINDOW
 
