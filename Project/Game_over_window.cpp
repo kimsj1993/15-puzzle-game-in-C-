@@ -1,3 +1,7 @@
+//Daniel Hain Trevino
+//CSCE 121-513
+//Game_over_window.cpp
+
 #include "Game_over_window.h"
 #include "Graph.h"
 
