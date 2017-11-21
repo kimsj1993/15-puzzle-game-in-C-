@@ -1,3 +1,7 @@
+//Daniel Hain Trevino
+//CSCE 121-513
+//Difficulty_window.cpp
+
 #include "Difficulty_window.h"
 #include "Graph.h"
 
