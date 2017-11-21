@@ -1,3 +1,7 @@
+//Daniel Hain Trevino
+//CSCE 121-513
+//Initials_window.h
+
 #ifndef INITIALS_WINDOW
 #define INITIALS_WINDOW
 
