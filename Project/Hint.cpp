@@ -1,3 +1,9 @@
+//
+//  Hint.cpp
+//  Team 4 - 'Please Compile'
+//
+//  Created by Luke Grammer
+//  Copyright © 2017 Luke Grammer. All rights reserved.
 
 #include "Hint.h"
 
@@ -12,7 +18,7 @@ string Hint::create_hint(vector<vector<int>> board) {
 
 int Hint::simulate_valid_moves(vector<vector<int>> board) { 
 	// Simulates all valid moves, and returns 
-	// value corresponding to move which causes the smallest manhattan dist. to occur
+	// value corresponding to move which causes the smallest manhattan dist.
 	int x_loc = 0, y_loc = 0, d1 = 1000000, d2 = d1, d3 = d1, d4 = d1;
 	find_16(x_loc, y_loc, board); // Find coordinates of 16 tile
 
@@ -33,15 +39,17 @@ int Hint::simulate_valid_moves(vector<vector<int>> board) {
 
 void Hint::find_16(int& x_loc, int& y_loc, const vector<vector<int>>& board) {
 	// Finds tile on board with value 16 and gives coords to argument
-	for (int i = 0; i < 4; ++i)
-		for (int j = 0; j < 4; ++j)
+	for (int i = 0; i < 4; ++i) {
+		for (int j = 0; j < 4; ++j) {
 			if (board[i][j] == 16) {
 				x_loc = i;
 				y_loc = j;
 			}
+		}
+	}
 }
 
-vector<vector<int>> Hint::swap(int num1, int num2, vector<vector<int>> board) { 
+vector<vector<int>> Hint::swap(int num1, int num2, vector<vector<int>> board) {
 	// Swaps two numbers in a 2-d vector of ints (a vector of vectors of ints)
 	int num1_x, num1_y, num2_x, num2_y;
 	for (unsigned i = 0; i < 4; ++i) {
@@ -63,7 +71,7 @@ vector<vector<int>> Hint::swap(int num1, int num2, vector<vector<int>> board) {
 }
 
 
-int Hint::find_distance(const vector<vector<int>>& board) { 
+int Hint::find_distance(const vector<vector<int>>& board) {
 	// Finds manhattan distance of a board (a vector of vectors of integers 1-16)
 	int m_dist = 0;
 	for (int i = 0; i < 4; ++i) {

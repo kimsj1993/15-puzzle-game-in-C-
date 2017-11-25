@@ -1,6 +1,9 @@
-//Daniel Hain Trevino
-//CSCE 121-513
-//Initials_window.h
+//
+//  Initials_window.h
+//  Team 4 - 'Please Compile'
+//
+//  Created by Daniel Hain-Trevino
+//  Copyright © 2017 Daniel Hain-Trevino. All rights reserved.
 
 #ifndef INITIALS_WINDOW
 #define INITIALS_WINDOW
@@ -23,7 +26,7 @@ class Initials_window : Graph_lib::Window {
         bool button_pushed;
         void stylize_objects();
         void attach_objects();
-        void write_to_file();
+        void store_init();
 public:
         Initials_window(Point xy, int w, int h, const string& title);
         void wait_for_button();

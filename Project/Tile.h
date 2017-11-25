@@ -1,6 +1,6 @@
 //
-//  Tiles.hpp
-//  TeamProject
+//  Tile.h
+//  Team 4 - 'Please Compile'
 //
 //  Created by 김승진 on 11/9/17.
 //  Copyright © 2017 SeugnJin Kim. All rights reserved.
@@ -26,6 +26,8 @@ class Tile : public Graph_lib::Button {
   int get_number();
   void set_number(int n);
   string get_title();
+  void set_title(string);
+  Tile& operator= (const Tile &tile);
 };
 
 #endif

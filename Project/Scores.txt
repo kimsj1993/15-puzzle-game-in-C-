@@ -1,17 +1,5 @@
-1 LAG 245
-4 DHT 200
-2 SJK 574
-1 RLR 900
 
-
-
-
-
-
-
-
-
-
-
-
-
+Difficulty: 2 User_Initial: AAB Score: 60
+Difficulty: 2 User_Initial: AAB Score: 20
+Difficulty: 3 User_Initial: AAA Score: 90
+Difficulty: 3 User_Initial: AAA Score: 0

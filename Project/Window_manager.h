@@ -1,3 +1,10 @@
+//
+//  Window_manager.h
+//  Team 4 - 'Please Compile'
+//
+//  Created by Luke Grammer
+//  Copyright © 2017 Luke Grammer. All rights reserved.
+
 #ifndef WINDOW_MANAGER
 #define WINDOW_MANAGER
 
@@ -13,8 +20,8 @@ class Window_manager {
 	void init_help();
 	int init_difficulty();
 	void init_initials();
-	void init_game(int difficulty);
-	bool init_game_over();
+	int init_game(int difficulty);
+	bool init_game_over(int score);
 	string user_initial;
 public:
 	Window_manager();

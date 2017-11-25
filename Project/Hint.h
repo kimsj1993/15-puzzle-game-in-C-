@@ -1,3 +1,10 @@
+//
+//  Hint.h
+//  Team 4 - 'Please Compile'
+//
+//  Created by Luke Grammer
+//  Copyright © 2017 Luke Grammer. All rights reserved.
+
 #ifndef HINT
 #define HINT
 
