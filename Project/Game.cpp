@@ -22,7 +22,7 @@ Game::Game(int difficulty, string initials)
 		tiles_incorrect_position = 9;
 		break;
 	case 3:
-		moves_left = 30;
+		moves_left = 40;
 		tiles_incorrect_position = 12;
 		break;
 	case 4:
