@@ -26,7 +26,7 @@ void Window_manager::start_game_sequence() { // Runs the game
 			while (replay) {
 				choice = init_difficulty(); // Display difficulty screen
 				score = init_game(choice); // Display game
-				replay = init_game_over(score); // Display game over
+				replay = init_game_over(score, choice); // Display game over
 			}
 			game = false; // Do not go back to main menu
 		}
@@ -74,8 +74,8 @@ int Window_manager::init_game(int difficulty) { // Display game
 	return game_window.get_final_score();
 }
 
-bool Window_manager::init_game_over(int score) { // Display game over
-	Game_over_window game_over{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Game Over", score };
+bool Window_manager::init_game_over(int score, int difficulty) { // Display game over
+	Game_over_window game_over{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Game Over", score, difficulty};
 	game_over.wait_for_button();
 	game_over.quit();
 	return game_over.get_choice();

@@ -21,7 +21,7 @@ class Window_manager {
 	int init_difficulty();
 	void init_initials();
 	int init_game(int difficulty);
-	bool init_game_over(int score);
+	bool init_game_over(int score, int difficulty);
 	string user_initial;
 public:
 	Window_manager();

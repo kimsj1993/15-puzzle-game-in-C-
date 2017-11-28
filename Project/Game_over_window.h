@@ -22,11 +22,14 @@ class Game_over_window : Graph_lib::Window {
 	Text quit_button_text;
 	bool button_pushed;
 	int selection;
+	int final_score;
+	int difficulty;
 
+	void check_win();
 	void stylize_objects();
 	void attach_objects();
 public:
-	Game_over_window(Point xy, int w, int h, const string& title, int final_score);
+	Game_over_window(Point xy, int w, int h, const string& title, int final_score, int difficulty);
 	void wait_for_button();
 	bool change_state(bool choice);
 	bool get_choice() { return selection; }

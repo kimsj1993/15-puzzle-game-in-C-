@@ -8,27 +8,30 @@
 #include "Game_over_window.h"
 #include "Graph.h"
 
-Game_over_window::Game_over_window(Point xy, int w, int h, const string& title, int final_score)
+Game_over_window::Game_over_window(Point xy, int w, int h, const string& title, int final_score, int difficulty)
 	:Window{ xy,w,h,title },
 	background{ Point{0, 0}, Point{x_max(), y_max()} },
-	score{ Point{ x_max() / 2 - 75, y_max() / 4 + 95 }, "Final Score: " + to_string(final_score)},
+	score{ Point{ x_max() / 2 - 75, y_max() / 4 + 95 }, "Final Score: " + to_string(final_score) },
 	game_over_text{ Point{ x_max() / 4 + 10, y_max() / 4 + 50 }, "GAME OVER" },
-	play_button{ Point{ x_max() / 2 - 70, y_max() / 2 }, 140, 40, "Play Again", 
+	play_button{ Point{ x_max() / 2 - 70, y_max() / 2 }, 140, 40, "Play Again",
 		[](Address, Address pw) {reference_to<Game_over_window>(pw).change_state(true); } },
-	quit_button{ Point{ x_max() / 2 - 35, y_max() / 2 + 75 }, 70, 20, "Quit", 
+	quit_button{ Point{ x_max() / 2 - 35, y_max() / 2 + 75 }, 70, 20, "Quit",
 		[](Address, Address pw) {reference_to<Game_over_window>(pw).change_state(false); } }, // C++11 feature (lambda expressions)
 	play_button_cover{ Point{ x_max() / 2 - 70, y_max() / 2 }, Point{ x_max() / 2 - 70 + 140, y_max() / 2 + 40} },
 	quit_button_cover{ Point{ x_max() / 2 - 35, y_max() / 2 + 75 }, Point{ x_max() / 2 - 35 + 70, y_max() / 2 + 75 + 20 } },
 	play_button_text{ Point{ x_max() / 2 - 70 + 35, y_max() / 2 + 25}, "Play Again" },
 	quit_button_text{ Point{ x_max() / 2 - 35 + 20, y_max() / 2 + 75 + 15}, "Quit" },
 	button_pushed{ false },
-	selection{ false }
+	selection{ false },
+	final_score{ final_score },
+	difficulty{ difficulty }
 {
+	check_win();
 	stylize_objects();
 	attach_objects();
 }
 
-void Game_over_window::stylize_objects() { 
+void Game_over_window::stylize_objects() {
 	// Changes appearance of screen objects
 	background.set_fill_color(Color::white);
 	game_over_text.set_font_size(50);
@@ -47,11 +50,37 @@ void Game_over_window::attach_objects() { // Attaches objects to screen
 	attach(quit_button_text);
 }
 
+
+void Game_over_window::check_win() { // Checks if game was won
+	switch (final_score) {
+	case 160: if (difficulty == 1) { // If score is max for difficulty
+		game_over_text.set_label("YOU WON"); // Change to win-text
+		game_over_text.move(28, 0); // Shift text to left a bit
+	}
+		break;
+	case 320: if (difficulty == 2) {
+		game_over_text.set_label("YOU WON");
+		game_over_text.move(28, 0);
+	}
+		break;
+	case 640: if (difficulty == 3) {
+		game_over_text.set_label("YOU WON");
+		game_over_text.move(28, 0);
+	}
+		break;
+	case 1280: if (difficulty == 4) {
+		game_over_text.set_label("YOU WON");
+		game_over_text.move(28, 0);
+	}
+		break;
+	}
+}
+
 void Game_over_window::quit() { // Closes window
 	hide();
 }
 
-bool Game_over_window::change_state(bool choice) { 
+bool Game_over_window::change_state(bool choice) {
 	// Registers button push and returns selection
 	button_pushed = true;
 	selection = choice;
