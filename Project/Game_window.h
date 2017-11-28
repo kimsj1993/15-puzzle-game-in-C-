@@ -39,6 +39,8 @@ class Game_window : Graph_lib::Window {
 	void attach_objects();
 	void load_game(int difficulty);
 	void load_board(int difficulty);
+	void get_matrix(int rand_num);
+        void load_tiles();
 	void load_scores();
 	static void cb_tile(Address p, Address pw);
 	void swap_tile(Tile& tile1, Tile& tile2, Text& tile1_label, Text& tile2_label);
