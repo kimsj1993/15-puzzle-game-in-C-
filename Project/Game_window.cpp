@@ -85,26 +85,57 @@ void Game_window::load_game(int difficulty) {
 	set_moveable(empty_index, true);
 }
 
-// Gives board starting positions and adds tiles and backgrounds
+// Chooses a random number based on difficulty, and calls get matrix & load tiles
 void Game_window::load_board(int difficulty) {
-	switch (difficulty) {
-	case 1: matrix = { {1,2,3,4},{5,6,12,7},{9,10,16,15},{13,14,8,11} }; break;
-	case 2: matrix = { {1,6,3,4},{5,16,2,11},{9,10,14,7},{13,15,12,8} }; break;
-	case 3: matrix = { {4,8,12,15},{3,16,7,11},{9,2,1,10},{13,14,5,6} }; break;
-	case 4: matrix = { {16,12,11,13},{15,14,10,9},{3,7,6,2},{4,8,5,1} }; break;
-	}
-	for (auto i = 0; i < 4; ++i) { // C++11 feature (auto variables)
-		for (auto j = 0; j < 4; ++j) {
-			board.push_back(new Tile(Point(j * 100, i * 100), 100,
-				to_string(matrix[i][j]), matrix[i][j], false, cb_tile));
-			board_cover.push_back(new Rectangle{ Point(j * 100, i * 100),
-				Point(j * 100 + 100, i * 100 + 100) });
-			numbers.push_back(new Text(Point(j * 100 + 45, i * 100 + 50),
-				(board[board.size() - 1].get_title() != "16") ? board[board.size() - 1].get_title() : ""));
-		}
-	}
-	board_cover.push_back(new Rectangle{ Point{ 900, 70 }, Point{ 970, 90 } });
-	board_cover.push_back(new Rectangle{ Point{ 900, 650 }, Point{ 970, 670 } });
+        int rand_num = difficulty;
+        if(rand_num == 1) { rand_num = rand()%(4-1 + 1) + 1; }
+        else if(rand_num == 2) { rand_num = rand()%(8-5 + 1) + 5; }
+        else if(rand_num == 3) { rand_num = rand()%(12-9 + 1) + 9; }
+        else if(rand_num == 4) { rand_num = rand()%(16-13 + 1) + 13; }
+        get_matrix(rand_num);
+        load_tiles();
+}
+
+// Gives board starting positions based on the random number
+void Game_window::get_matrix(int rand_num) {
+        switch (rand_num) {
+        // Easy starting positions (10 moves)
+        case 1: matrix = { {1,2,3,4},{5,6,12,7},{9,10,16,15},{13,14,8,11} }; break;
+        case 2: matrix = { {1,6,2,4},{5,10,3,8},{16,14,7,12},{9,13,11,15} }; break;
+        case 3: matrix = { {5,1,2,3},{9,6,7,4},{13,10,11,8},{14,16,15,12} }; break;
+        case 4: matrix = { {1,2,7,3},{5,16,11,4},{9,6,15,8},{13,10,14,12} }; break;
+        // Normal starting positions (20 moves)
+        case 5: matrix = { {1,6,3,4},{5,16,2,11},{9,10,14,7},{13,15,12,8} }; break;
+        case 6: matrix = { {2,5,3,4},{13,16,6,8},{10,1,9,12},{14,11,7,15} }; break;
+        case 7: matrix = { {5,1,2,4},{13,9,3,8},{15,6,7,11},{14,16,10,12} }; break;
+        case 8: matrix = { {11,2,16,4},{1,5,3,8},{10,7,14,12},{9,6,13,15} }; break;
+        // Hard starting positions (40 moves)
+        case 9: matrix = { {4,8,12,15},{3,16,7,11},{9,2,1,10},{13,14,5,6} }; break;
+        case 10: matrix = { {9,5,1,4},{10,13,7,3},{15,6,14,8},{2,11,12,16} }; break;
+        case 11: matrix = { {1,3,7,8},{4,13,5,10},{2,9,6,15},{14,16,12,11} }; break;
+        case 12: matrix = { {15,5,6,2},{1,16,9,7},{10,13,8,3},{14,12,4,11} }; break;
+        // Expert starting positions (80 moves)
+        case 13: matrix = { {16,12,11,13},{15,14,10,9},{3,7,6,2},{4,8,5,1} }; break;
+        case 14: matrix = { {16,12,9,13},{15,11,10,14},{3,7,2,5},{4,8,6,1} }; break;
+        case 15: matrix = { {16,15,9,13},{11,12,10,14},{3,7,6,2},{4,8,5,1} }; break;
+        case 16: matrix = { {16,12,14,13},{15,11,9,10},{8,3,6,2},{4,7,5,1} }; break;
+        }
+}
+
+// Adds tiles and backgrounds
+void Game_window::load_tiles() {
+        for (auto i = 0; i < 4; ++i) { // C++11 feature (auto variables)
+                for (auto j = 0; j < 4; ++j) {
+                        board.push_back(new Tile(Point(j * 100, i * 100), 100,
+                                to_string(matrix[i][j]), matrix[i][j], false, cb_tile));
+                        board_cover.push_back(new Rectangle{ Point(j * 100, i * 100),
+                                Point(j * 100 + 100, i * 100 + 100) });
+                        numbers.push_back(new Text(Point(j * 100 + 45, i * 100 + 50),
+                                (board[board.size() - 1].get_title() != "16") ? board[board.size() - 1].get_title() : ""));
+                }
+        }
+        board_cover.push_back(new Rectangle{ Point{ 900, 70 }, Point{ 970, 90 } });
+        board_cover.push_back(new Rectangle{ Point{ 900, 650 }, Point{ 970, 670 } });
 }
 
 // Populates scores to display on screen
