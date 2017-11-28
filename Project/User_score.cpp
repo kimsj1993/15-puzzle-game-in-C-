@@ -47,7 +47,7 @@ User_score& User_score::swap(const User_score &user_score) {
 
 // Operator definitions
 ostream& operator<<(ostream & os, const User_score & x) {
-	return os << endl << "Difficulty: " << x.difficulty << " User_Initial: " << x.initials << " Score: " << x.score;
+	return os << "Difficulty: " << x.difficulty << " User_Initial: " << x.initials << " Score: " << x.score;
 }
 
 istream& operator>>(istream & is, User_score & z) {

@@ -131,7 +131,7 @@ void Game_window::cb_tile(Address p, Address pw) {
 void Game_window::move_button(Address i) {
 	string clicked_number(reference_to<Fl_Button>(i).label());
 
-	for (int i = 0; i <= board.size() - 1; ++i) {
+	for (int i = 0; i < board.size(); ++i) {
 		if (clicked_number == board[i].get_title() && board[i].has_space()) {
 			swap_tile(board[i], board[empty_index], numbers[i], numbers[empty_index]);
 			set_moveable(empty_index, false);
@@ -184,13 +184,13 @@ void Game_window::export_scores() {
 
 // Writes scores to file
 void Game_window::write_to_file() {
-	ofstream score_file("Scores.txt", ios::out);
-	for (int i = 0; i <= top_scores.size() - 1; ++i) {
-		score_file << top_scores[i];
+	ofstream score_file{"Scores.txt"};
+	for (int i = 0; i < top_scores.size(); ++i) {
+		score_file << top_scores[i] << "\r\n";
 	}
 	if (game.get_different_difficulties().size() > 0) {
-		for (int i = 0; i <= game.get_different_difficulties().size() - 1; ++i) {
-			score_file << game.get_different_difficulties()[i];
+		for (int i = 0; i < game.get_different_difficulties().size(); ++i) {
+			score_file << game.get_different_difficulties()[i] << "\r\n";
 		}
 	}
 	score_file.close();

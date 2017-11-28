@@ -22,7 +22,7 @@ Game::Game(int difficulty, string initials)
 		tiles_incorrect_position = 9;
 		break;
 	case 3:
-		moves_left = 40;
+		moves_left = 30;
 		tiles_incorrect_position = 12;
 		break;
 	case 4:
@@ -73,19 +73,17 @@ int Game::get_move_count() {
 void Game::load_top_scores() {
 	string line;
 	User_score user(initials, 0, difficulty);
-	//get scores from the file
-	ifstream file("Scores.txt");
-	if (file) {
+	fstream file("Scores.txt", ios::in|ios::out);
+	// Open file or create it if DNE
+	if (file) { // If file is open
 		User_score temp("", 0, 0);
-		while (getline(file, line)) {
-			file >> temp;
-			if (temp.get_difficulty() == difficulty) {
+		while (file >> temp) {
+			if (temp.get_difficulty() == difficulty)
 				top_scores.push_back(temp);
-			}
-			else {
+			else
 				different_difficulties.push_back(temp);
-			}
 		}
+		file << flush;
 		file.close();
 	}
 	top_scores.push_back(user);
