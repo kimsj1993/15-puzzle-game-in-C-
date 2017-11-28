@@ -2,8 +2,8 @@
 //  Game.cpp
 //  Team 4 - 'Please Compile'
 //
-//  Created by 김승진 on 11/10/17.
-//  Copyright © 2017 SeugnJin Kim. All rights reserved.
+//  Created by SeungJin Kim on 11/10/17.
+//  Copyright © 2017 SeungJin Kim. All rights reserved.
 
 #include "Game.h"
 
@@ -22,7 +22,7 @@ Game::Game(int difficulty, string initials)
 		tiles_incorrect_position = 9;
 		break;
 	case 3:
-		moves_left = 30;
+		moves_left = 40;
 		tiles_incorrect_position = 12;
 		break;
 	case 4:

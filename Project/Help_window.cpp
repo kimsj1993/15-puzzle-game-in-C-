@@ -24,6 +24,7 @@ Help_window::Help_window(Point xy, int w, int h, const string& title)
 	help_text.push_back(new Text(Point{ 25, 190 }, "more moves remaining. score is calculated by the following equation:")),
 	help_text.push_back(new Text(Point{ 25, 220 }, "     score = 'number of moves made' * 'tiles in correct position'.")),
 	help_text.push_back(new Text(Point{ 25, 250 }, "You can get a hint at any time during the game by selecting the 'hint' button.")),
+	help_text.push_back(new Text(Point{ 25, 280 }, "(Warning: Hint only predicts the best move for the current board state.)")),
 	stylize_objects();
 	attach_objects();
 }
