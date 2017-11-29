@@ -10,25 +10,17 @@
 Game::Game(int difficulty, string initials)
 	: difficulty{ difficulty }, initials{ initials }, move_count{ 0 }
 {
-	load_top_scores();
-
-	switch (difficulty) { // Determines number of moves, also number of tiles in incorrect positions
+	load_top_scores(); // Load scores from 'Scores.txt'
+        tiles_incorrect_position = 0;
+	switch (difficulty) { // Determines number of moves given to user
 	case 1:
-		moves_left = 10;
-		tiles_incorrect_position = 6;
-		break;
+		moves_left = 10; break;
 	case 2:
-		moves_left = 20;
-		tiles_incorrect_position = 9;
-		break;
+		moves_left = 20; break;
 	case 3:
-		moves_left = 40;
-		tiles_incorrect_position = 12;
-		break;
+		moves_left = 40; break;
 	case 4:
-		moves_left = 80;
-		tiles_incorrect_position = 16;
-		break;
+		moves_left = 80; break;
 	}
 }
 
