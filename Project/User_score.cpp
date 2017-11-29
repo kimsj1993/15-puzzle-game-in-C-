@@ -2,8 +2,8 @@
 //  User_score.cpp
 //  Team 4 - 'Please Compile'
 //
-//  Created by 김승진 on 11/12/17.
-//  Copyright © 2017 SeugnJin Kim. All rights reserved.
+//  Created by SeungJin Kim on 11/12/17.
+//  Copyright © 2017 SeungJin Kim. All rights reserved.
 
 #include "User_score.h"
 

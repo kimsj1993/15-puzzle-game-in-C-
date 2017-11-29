@@ -2,8 +2,8 @@
 //  Tile.cpp
 //  Team 4 - 'Please Compile'
 //
-//  Created by 김승진 on 11/9/17.
-//  Copyright © 2017 SeugnJin Kim. All rights reserved.
+//  Created by SeungJin Kim on 11/9/17.
+//  Copyright © 2017 SeungJin Kim. All rights reserved.
 //
 
 #include "Tile.h"

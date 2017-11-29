@@ -2,8 +2,8 @@
 //  Game_window.h
 //  Team 4 - 'Please Compile'
 //
-//  Created by 김승진 on 11/10/17.
-//  Copyright © 2017 SeugnJin Kim. All rights reserved.
+//  Created by SeungJin Kim on 11/10/17.
+//  Copyright © 2017 SeungJin Kim. All rights reserved.
 
 #ifndef GAME_WINDOW
 #define GAME_WINDOW

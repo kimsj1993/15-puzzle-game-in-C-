@@ -1,5 +1,1 @@
 
-Difficulty: 2 User_Initial: AAB Score: 60
-Difficulty: 2 User_Initial: AAB Score: 20
-Difficulty: 3 User_Initial: AAA Score: 90
-Difficulty: 3 User_Initial: AAA Score: 0
