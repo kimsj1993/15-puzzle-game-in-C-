@@ -11,7 +11,7 @@ Game::Game(int difficulty, string initials)
 	: difficulty{ difficulty }, initials{ initials }, move_count{ 0 }
 {
 	load_top_scores(); // Load scores from 'Scores.txt'
-        tiles_incorrect_position = 0;
+	tiles_incorrect_position = 0;
 	switch (difficulty) { // Determines number of moves given to user
 	case 1:
 		moves_left = 10; break;
@@ -65,7 +65,7 @@ int Game::get_move_count() {
 void Game::load_top_scores() {
 	string line;
 	User_score user(initials, 0, difficulty);
-	fstream file("Scores.txt", ios::in|ios::out);
+	fstream file("Scores.txt", ios::in | ios::out);
 	// Open file or create it if DNE
 	if (file) { // If file is open
 		User_score temp("", 0, 0);
