@@ -82,7 +82,9 @@ void Game_window::load_game(int difficulty) {
 			set_moveable(i, true);
 		}
 	}
-	set_moveable(empty_index, true);
+	set_moveable(empty_index, true); 
+	find_incorrect_tiles();
+		
 }
 
 // Chooses a random number based on difficulty, and calls get matrix & load tiles
