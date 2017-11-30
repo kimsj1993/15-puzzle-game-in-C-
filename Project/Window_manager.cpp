@@ -15,10 +15,8 @@ const int ORIG_Y = 300;
 Window_manager::Window_manager() {}
 
 void Window_manager::start_game_sequence() { // Runs the game
-	int choice;
-	int score;
-	bool game = true;
-	bool replay = true;
+	int choice, score;
+	bool game = true, replay = true;
 	while (game) {
 		choice = init_main_window(); // Display main menu
 		if (choice == 1) {
@@ -75,7 +73,7 @@ int Window_manager::init_game(int difficulty) { // Display game
 }
 
 bool Window_manager::init_game_over(int score, int difficulty) { // Display game over
-	Game_over_window game_over{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Game Over", score, difficulty};
+	Game_over_window game_over{ Point{ ORIG_X,ORIG_Y }, WINDOW_X, WINDOW_Y, "Game Over", score, difficulty, user_initial};
 	game_over.wait_for_button();
 	game_over.quit();
 	return game_over.get_choice();

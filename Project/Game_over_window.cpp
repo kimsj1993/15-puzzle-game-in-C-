@@ -8,10 +8,10 @@
 #include "Game_over_window.h"
 #include "Graph.h"
 
-Game_over_window::Game_over_window(Point xy, int w, int h, const string& title, int final_score, int difficulty)
+Game_over_window::Game_over_window(Point xy, int w, int h, const string& title, int final_score, int difficulty, string initials)
 	:Window{ xy,w,h,title },
 	background{ Point{0, 0}, Point{x_max(), y_max()} },
-	score{ Point{ x_max() / 2 - 75, y_max() / 4 + 95 }, "Final Score: " + to_string(final_score) },
+	score{ Point{ x_max() / 2 - 115, y_max() / 4 + 95 }, "Final Score for " + initials + ": " + to_string(final_score) },
 	game_over_text{ Point{ x_max() / 4 + 10, y_max() / 4 + 50 }, "GAME OVER" },
 	play_button{ Point{ x_max() / 2 - 70, y_max() / 2 }, 140, 40, "Play Again",
 		[](Address, Address pw) {reference_to<Game_over_window>(pw).change_state(true); } },
